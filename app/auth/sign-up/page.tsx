@@ -63,7 +63,6 @@ export default function SignUp() {
         </Button>
       </form>
       <Divider style={{ borderColor: "#492971" }}>Or</Divider>
-      {/* Google Button */}
       <Button
         type="default"
         size="large"
