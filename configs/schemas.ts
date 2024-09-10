@@ -1,4 +1,3 @@
-import { first } from "lodash"
 import * as zod from "zod"
 
 export const SignInSchema = zod.object({

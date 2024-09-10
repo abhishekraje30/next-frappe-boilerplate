@@ -41,9 +41,6 @@ export const createFrappeUser = async (email: string, firstName: string, lastNam
       {
         role: role,
       },
-      {
-        role: "System Manager",
-      },
     ],
     send_welcome_email: 0,
   })
@@ -63,7 +60,7 @@ export const createFrappeApiKeys = async (email: string) => {
 }
 
 export const register = async (values: z.infer<typeof SignUpSchema>) => {
-  const { email, password, firstName, lastName, role } = values
+  const { email, password, firstName, lastName } = values
 
   try {
     // Check if the user exists
@@ -84,7 +81,7 @@ export const register = async (values: z.infer<typeof SignUpSchema>) => {
     }
 
     if (!userExists) {
-      await createFrappeUser(email, firstName, lastName, role)
+      await createFrappeUser(email, firstName, lastName, "System Manager")
       await createFrappeApiKeys(email)
       await createNextAuthUser(email, hashedPassword)
     }

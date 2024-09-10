@@ -14,14 +14,17 @@ export const getUsers = async () => {
 }
 
 export const getUser = async (userId: string) => {
-  const apiClient = await getApiClient()
-
-  const response = await apiClient.get(`/document/User/${userId}`)
-  if (response.status === 200) {
-    return response.data.data
+  try {
+    const apiClient = await getApiClient()
+    const response = await apiClient.get(`/document/User/${userId}`)
+    if (response.status === 200) {
+      return response.data.data
+    }
+    // If status is not 200, return null or handle as needed
+    return null
+  } catch (error) {
+    return null
   }
-
-  return {}
 }
 
 export const fetcher = async (url: string) => {

@@ -1,7 +1,7 @@
 "use client"
 
-import { DownOutlined, LogoutOutlined, SmileOutlined, UserOutlined } from "@ant-design/icons"
-import { Avatar, Dropdown, Menu, MenuProps, Space } from "antd"
+import { LogoutOutlined, UserOutlined } from "@ant-design/icons"
+import { Avatar, Dropdown, MenuProps, Space } from "antd"
 import Link from "next/link"
 import { signOut, useSession } from "next-auth/react"
 
@@ -14,7 +14,7 @@ export const UserButton = () => {
     },
     {
       key: "3",
-      label: <Link href="/auth/change-password">Change Password</Link>,
+      label: <Link href="/auth/reset-password">Change Password</Link>,
     },
     {
       key: "4",

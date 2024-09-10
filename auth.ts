@@ -52,7 +52,7 @@ const config = {
         const gmail = user?.email ?? ""
         const userExists = await checkUserExists(gmail)
         if (!userExists) {
-          await createFrappeUser(gmail, user?.name ?? "", "")
+          await createFrappeUser(gmail, user?.name ?? "", "", "System Manager")
           await createFrappeApiKeys(gmail)
         }
         return true
