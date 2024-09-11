@@ -47,6 +47,7 @@ export default function SignIn() {
       switch (signInData?.error) {
         case "CredentialsSignin":
           message = "Invalid email or password"
+          setIsPending(false)
           break
         case "Configuration":
           message = "Email does not exist. Please sign up."
@@ -54,6 +55,7 @@ export default function SignIn() {
           break
         default:
           message = "An error occurred. Please try again."
+          setIsPending(false)
       }
       setStatus("error")
       setMessage(message)

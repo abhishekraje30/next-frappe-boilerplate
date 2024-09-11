@@ -2,12 +2,12 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "antd"
+import { useState } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import * as zod from "zod"
-import CustomTextInput from "components/FormInputs/CustomInput"
-import AlertNotification from "components/AlertNotification"
-import { useState } from "react"
 import { verifyEmailandGenerateToken } from "actions/verification-token"
+import AlertNotification from "components/AlertNotification"
+import CustomTextInput from "components/FormInputs/CustomInput"
 
 const resetPasswordSchema = zod.object({
   email: zod.string().email({
@@ -33,7 +33,7 @@ export default function ResetPassword() {
     const response = await verifyEmailandGenerateToken(values.email)
     if (response.status === "success") {
       setStatus("success")
-      setMessage(response.message)
+      setMessage("Go to your registered email to reset your password")
     } else {
       setStatus("error")
       setMessage(response.message)
